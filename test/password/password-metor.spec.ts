@@ -1,5 +1,5 @@
-import { PasswordMeter } from '../src/password/password-meter';
-import { PasswordStrength } from '../src/password/password-strength.enum';
+import { PasswordMeter } from '../../src/password/password-meter';
+import { PasswordStrength } from '../../src/password/password-strength.enum';
 
 describe('암호 검사기', () => {
   // 검증하려는 대상 sut

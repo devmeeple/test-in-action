@@ -6,9 +6,9 @@ describe('Money', () => {
     const dollar = new Dollar(5);
 
     // when
-    dollar.times(2);
+    const product = dollar.times(2);
 
     // then
-    expect(dollar.amount).toBe(10);
+    expect(product.amount).toBe(10);
   });
 });

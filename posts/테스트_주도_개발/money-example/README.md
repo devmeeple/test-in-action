@@ -36,4 +36,8 @@
 
 > VO (값 객체)는 불변성을 가진 객체를 의미한다. 객체 그 자체로 의미 있는 값을 표현하고, 동일한 값을 가진 객체는 동등해야 한다.
 
-- [참고자료](https://hudi.blog/value-object/) 
+- [참고자료](https://hudi.blog/value-object/)
+
+## 04. 프라이버시
+
+필드를 `private`로 수정하기

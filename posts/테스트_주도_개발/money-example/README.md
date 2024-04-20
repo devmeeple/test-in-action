@@ -46,15 +46,34 @@
 
 ### 요구사항
 
-- $5 + 10CHF = $10(환율이 2:1일 경우)
-- ~~$5 * 2 = 10$~~
-- ~~amount private 필드 만들기~~
-- ~~Dollar 부작용~~
-- Money 반올림
-- ~~equals()~~
-- hashCode()
-- Equal null
-- Equal object
-- 🔥 **5CHF * 2 = 10CHF**
+> - $5 + 10CHF = $10(환율이 2:1일 경우)
+> - ~~$5 * 2 = 10$~~
+> - ~~amount private 필드 만들기~~
+> - ~~Dollar 부작용~~
+> - Money 반올림
+> - ~~equals()~~
+> - hashCode()
+> - Equal null
+> - Equal object
+> - 🔥 **5CHF * 2 = 10CHF**
 
+## 06. 돌아온 '모두를 위한 평등'
 
+### 요구사항
+
+> - $5 + 10CHF = $10(환율이 2:1일 경우)
+> - ~~$5 * 2 = 10$~~
+> - ~~amount private 필드 만들기~~
+> - ~~Dollar 부작용~~
+> - Money 반올림
+> - ~~equals()~~
+> - hashCode()
+> - Equal null
+> - Equal object
+> - ~~5CHF * 2 = 10CHF~~
+> - Dollar/Franc 중복
+> - 🔥 **공용 equals**
+> - 공용 times
+
+- protected: 선언 클래스와 상속받은 서브 클래스에서 접근 가능
+- private: 외부 클래스에서 접근할 수 없음

@@ -31,8 +31,12 @@ export function statement(invoice, plays) {
     return result;
   }
 
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
+  }
+
   for (const perf of invoice.performances) {
-    const play = plays[perf.playID];
+    const play = playFor(perf);
     const thisAmount = amountFor(play, perf);
 
     // 포인트를 적립

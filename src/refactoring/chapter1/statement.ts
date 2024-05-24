@@ -6,6 +6,7 @@ export function statement(invoice, plays) {
   }
   result += `총액: ${usd(totalAmount())}\n`;
   result += `적립 포인트: ${totalVolumeCredits()}점\n`;
+
   return result;
 
   function totalAmount() {
@@ -16,12 +17,32 @@ export function statement(invoice, plays) {
     return result;
   }
 
+  function totalVolumeCredits() {
+    let result = 0;
+    for (const perf of invoice.performances) {
+      result += volumeCreditsFor(perf);
+    }
+    return result;
+  }
+
   function usd(aNumber) {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 2,
     }).format(aNumber / 100);
+  }
+
+  function volumeCreditsFor(perf) {
+    let result = 0;
+    result += Math.max(perf.audience - 30, 0);
+    if ('comedy' === playFor(perf).type)
+      result += Math.floor(perf.audience / 5);
+    return result;
+  }
+
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
   }
 
   function amountFor(aPerformance) {
@@ -43,26 +64,6 @@ export function statement(invoice, plays) {
         break;
       default:
         throw new Error(`알 수 없는 장르: ${playFor(aPerformance).type}`);
-    }
-    return result;
-  }
-
-  function playFor(aPerformance) {
-    return plays[aPerformance.playID];
-  }
-
-  function volumeCreditsFor(perf) {
-    let result = 0;
-    result += Math.max(perf.audience - 30, 0);
-    if ('comedy' === playFor(perf).type)
-      result += Math.floor(perf.audience / 5);
-    return result;
-  }
-
-  function totalVolumeCredits() {
-    let result = 0;
-    for (const perf of invoice.performances) {
-      result += volumeCreditsFor(perf);
     }
     return result;
   }

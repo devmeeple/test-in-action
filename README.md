@@ -1,6 +1,6 @@
-# TDD in Action
+# Test in Action
 
-타입스크립트와 함께 하는 TDD
+타입스크립트와 함께 하는 테스트 코드
 
 ## 테스트 주도 개발(Test-Driven Development)
 

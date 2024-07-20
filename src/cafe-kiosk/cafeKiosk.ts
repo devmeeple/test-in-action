@@ -9,8 +9,14 @@ export class CafeKiosk {
     return this._beverages;
   }
 
-  add(beverage: Beverage) {
-    this._beverages.push(beverage);
+  add(beverage: Beverage, count: number) {
+    if (count <= 0) {
+      throw new Error('음료는 1잔 이상 주문할 수 있습니다');
+    }
+
+    for (let i = 0; i < count; i++) {
+      this._beverages.push(beverage);
+    }
   }
 
   remove(beverage: Beverage) {

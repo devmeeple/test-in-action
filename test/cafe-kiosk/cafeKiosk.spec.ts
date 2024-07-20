@@ -9,18 +9,44 @@ describe('CafeKiosk', () => {
     const americano = new Americano();
 
     // when
-    cafeKiosk.add(americano);
+    cafeKiosk.add(americano, 1);
 
     // then
     expect(cafeKiosk.beverages).toHaveLength(1);
     expect(cafeKiosk.beverages[0].name).toBe('아메리카노');
   });
 
+  it('음료를 여러잔 주문한다', () => {
+    // given
+    const cafeKiosk = new CafeKiosk();
+    const americano = new Americano();
+
+    // when
+    cafeKiosk.add(americano, 2);
+
+    // then
+    expect(cafeKiosk.beverages[0]).toBe(americano);
+    expect(cafeKiosk.beverages[1]).toBe(americano);
+  });
+
+  it('음료를 한 잔도 주문하지 않으면 에러가 발생한다', () => {
+    // given
+    const cafeKiosk = new CafeKiosk();
+    const americano = new Americano();
+
+    // when
+
+    // then
+    expect(() => cafeKiosk.add(americano, 0)).toThrow(
+      new Error('음료는 1잔 이상 주문할 수 있습니다'),
+    );
+  });
+
   it('주문한 상품을 취소한다', () => {
     // given
     const cafeKiosk = new CafeKiosk();
     const americano = new Americano();
-    cafeKiosk.add(americano);
+    cafeKiosk.add(americano, 1);
 
     // when
     cafeKiosk.remove(americano);
@@ -34,8 +60,8 @@ describe('CafeKiosk', () => {
     const cafeKiosk = new CafeKiosk();
     const americano = new Americano();
     const latte = new Latte();
-    cafeKiosk.add(americano);
-    cafeKiosk.add(latte);
+    cafeKiosk.add(americano, 1);
+    cafeKiosk.add(latte, 1);
 
     // when
     cafeKiosk.clear();

@@ -42,7 +42,8 @@
 
 기능 명세는 설계로 연결된다. 이름, 파라미터, 리턴 타입 등 결정
 
-## 추천 자료
+**<참고 자료>**
 
 * [테스트 주도 개발 - 켄트백](https://product.kyobobook.co.kr/detail/S000001032985)
 * [클린코드 - 로버트 마틴](https://product.kyobobook.co.kr/detail/S000001032980)
+* [최범균 『테스트 주도 개발 시작하기』](https://product.kyobobook.co.kr/detail/S000001248962)

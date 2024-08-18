@@ -4,17 +4,19 @@ class PasswordStrengthMeter {
       return PasswordStrength.NORMAL;
     }
 
-    let containsNumber = false;
-    for (const char of password) {
-      if (char >= '0' && char <= '9') {
-        containsNumber = true;
-        break;
-      }
-    }
-
+    const containsNumber = this.meetsContainingNumberCriteria(password);
     if (!containsNumber) return PasswordStrength.NORMAL;
 
     return PasswordStrength.STRONG;
+  }
+
+  private meetsContainingNumberCriteria(password: string) {
+    for (const char of password) {
+      if (char >= '0' && char <= '9') {
+        return true;
+      }
+    }
+    return false;
   }
 }
 

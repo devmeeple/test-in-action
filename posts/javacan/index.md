@@ -28,3 +28,8 @@ Jest 환경을 이미 설정해서 생략했다.
 * 규칙을 모두 만족하면 암호는 강함이다.
 * 2개의 규칙을 만족하면 암호는 보통이다.
 * 1개의 규칙을 만족하면 암호는 약함이다.
+
+**<참고 자료>**
+
+* [DaleSeo 'Jest로 파라미터화 테스트하기: test.each(), describe.each()'](https://www.daleseo.com/jest-each/)
+

@@ -3,6 +3,17 @@ class PasswordStrengthMeter {
     if (password.length < 8) {
       return PasswordStrength.NORMAL;
     }
+
+    let containsNumber = false;
+    for (const char of password) {
+      if (char >= '0' && char <= '9') {
+        containsNumber = true;
+        break;
+      }
+    }
+
+    if (!containsNumber) return PasswordStrength.NORMAL;
+
     return PasswordStrength.STRONG;
   }
 }
@@ -40,5 +51,17 @@ describe('PasswordStrengthMeterTest', () => {
         expect(sut).toBe(PasswordStrength.NORMAL);
       },
     );
+  });
+
+  it('숫자를 포함하지 않고 나머지 조건은 만족한다.', () => {
+    // given
+    const meter = new PasswordStrengthMeter();
+    const password = 'ab!@ABqwer';
+
+    // when
+    const sut = meter.meter(password);
+
+    // then
+    expect(sut).toBe(PasswordStrength.NORMAL);
   });
 });

@@ -1,9 +1,11 @@
 class PasswordStrengthMeter {
   meter(password: string) {
+    // 빈 문자열을 검증한다
     if (!password?.trim()) {
       return PasswordStrength.INVALID;
     }
 
+    // 문자의 길이를 검증한다
     if (password.length < 8) {
       return PasswordStrength.NORMAL;
     }
@@ -11,6 +13,15 @@ class PasswordStrengthMeter {
     const containsNumber = this.meetsContainingNumberCriteria(password);
     if (!containsNumber) return PasswordStrength.NORMAL;
 
+    // 문자가 실제 대문자이면서 알파멧 문자인지를 검증한다
+    let containsUpp = false;
+    for (const char of password) {
+      if (char === char.toUpperCase() && char !== char.toLowerCase()) {
+        containsUpp = true;
+        break;
+      }
+    }
+    if (!containsUpp) return PasswordStrength.NORMAL;
     return PasswordStrength.STRONG;
   }
 
@@ -80,5 +91,15 @@ describe('PasswordStrengthMeterTest', () => {
 
     // then
     expectStrength(password, PasswordStrength.INVALID);
+  });
+
+  it('대문자를 포함하지 않고 나머지 조건은 만족한다. [성공]', () => {
+    // given
+    const password = 'ab12!@df';
+
+    // when
+
+    // then
+    expectStrength(password, PasswordStrength.NORMAL);
   });
 });

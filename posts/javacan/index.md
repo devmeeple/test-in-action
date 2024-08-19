@@ -60,7 +60,18 @@ if (!password?.trim()) {
 }
 ```
 
+### 다섯 번째 테스트: 대문자를 포함하지 않고 나머지 조건은 만족하는 경우
+
+```typescript
+if (char === char.toUpperCase() && char !== char.toLowerCase()) {
+  return `${char}는 대문자 입니다.`;
+}
+```
+
+Java는 Character.isUpperCase(c)를 통해 문자열이 모두 대문자인지 소문자인지 검증한다. 반면 JavaScript는 위와 같이 작성한다.
+
 **<참고 자료>**
 
 * [DaleSeo 'Jest로 파라미터화 테스트하기: test.each(), describe.each()'](https://www.daleseo.com/jest-each/)
+* [Baeldung Check if a String Is All Uppercase or Lowercase in Java](https://www.baeldung.com/java-check-string-uppercase-lowercase)
 

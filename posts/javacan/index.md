@@ -44,6 +44,22 @@ Jest 환경을 이미 설정해서 생략했다.
 
 값을 입력하지 않으면 프로그램은 어떻게 동작해야 자연스러울까.
 
+1. 명시적인 방법으로 비교하기
+
+```typescript
+if (password === null || password === undefined || password === '') {
+  return PasswordStrength.INVALID;
+}
+```
+
+2. Optional Chaining, Nullish Coalescing 연산자 활용하기
+
+```typescript
+if (!password?.trim()) {
+  return PasswordStrength.INVALID;
+}
+```
+
 **<참고 자료>**
 
 * [DaleSeo 'Jest로 파라미터화 테스트하기: test.each(), describe.each()'](https://www.daleseo.com/jest-each/)

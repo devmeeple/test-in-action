@@ -1,6 +1,6 @@
 class PasswordStrengthMeter {
   meter(password: string) {
-    if (password === null || password === undefined || password === '') {
+    if (!password?.trim()) {
       return PasswordStrength.INVALID;
     }
 

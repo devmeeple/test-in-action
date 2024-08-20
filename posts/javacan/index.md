@@ -129,6 +129,10 @@ if (metCounts === 1) {
 
 ### 아홉 번째 테스트: 아무 조건도 만족하지 않는 경우
 
+### 코드 정리: 코드 가독성 개선
+
+> 아름답다. 눈 뜨고 싶다.
+
 **<참고 자료>**
 
 * [DaleSeo 'Jest로 파라미터화 테스트하기: test.each(), describe.each()'](https://www.daleseo.com/jest-each/)

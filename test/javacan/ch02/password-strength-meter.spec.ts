@@ -4,7 +4,20 @@ class PasswordStrengthMeter {
     if (!password?.trim()) {
       return PasswordStrength.INVALID;
     }
+    const metCounts = this.getMetCriteriaCounts(password);
 
+    if (metCounts <= 1) {
+      return PasswordStrength.WEAK;
+    }
+
+    if (metCounts === 2) {
+      return PasswordStrength.NORMAL;
+    }
+
+    return PasswordStrength.STRONG;
+  }
+
+  private getMetCriteriaCounts(password: string) {
     let metCounts = 0;
     if (password.length >= 8) {
       metCounts += 1;
@@ -17,16 +30,7 @@ class PasswordStrengthMeter {
     if (this.meetsContainingUppercaseCriteria(password)) {
       metCounts += 1;
     }
-
-    if (metCounts <= 1) {
-      return PasswordStrength.WEAK;
-    }
-
-    if (metCounts === 2) {
-      return PasswordStrength.NORMAL;
-    }
-
-    return PasswordStrength.STRONG;
+    return metCounts;
   }
 
   private meetsContainingUppercaseCriteria(password: string) {

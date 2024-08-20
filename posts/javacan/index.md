@@ -84,6 +84,49 @@ Java는 Character.isUpperCase(c)를 통해 문자열이 모두 대문자인지 �
 
 - 여섯 번째, 일곱 번째, 여덟 번째 테스트를 조건에 맞게 부정을 추가하여 작성한다.
 
+```typescript
+// 각 조건을 만족하는 상황을 구현
+// 1. 길이가 8 이상인 조건만 만족하는 경우 통과한다
+if (lengthEnough && !containsNumber && !containsUpp) {
+  return PasswordStrength.WEAK;
+}
+
+// 2. 숫자 포함 조건만 만족하는 경우 통과한다
+if (!lengthEnough && containsNumber && !containsUpp) {
+  return PasswordStrength.WEAK;
+}
+
+// 3. 대문자 조건만 만족하는 경우 통과한다
+if (!lengthEnough && !containsNumber && containsUpp) {
+  return PasswordStrength.WEAK;
+}
+
+// NEW: 조건을 카운트 하는 변수를 선언하고, 값이 변경되면 반환
+let metCounts = 0;
+const lengthEnough = password.length >= 8;
+if (lengthEnough) {
+  metCounts += 1;
+}
+
+const containsNumber = this.meetsContainingNumberCriteria(password);
+if (containsNumber) {
+  metCounts += 1;
+}
+
+const containsUpp = this.meetsContainingUppercaseCriteria(password);
+if (containsUpp) {
+  metCounts += 1;
+}
+
+if (metCounts === 1) {
+  return PasswordStrength.WEAK;
+}
+```
+
+이전에는 각 조건을 만족하는 상황을 구현했다. 그런데 카운트 하는 변수 `metCounts`를 선언하고 값이 변경되었다면 '약함'을 반환하도록 리팩터링 했다.
+
+> 구현하기 위해 작성했던 코드가 이렇게 이해하기 쉽게 변경될 수 있다는게 놀랍다. 어서 빨리 리팩터링 2판을 꺼내고 싶다.
+
 **<참고 자료>**
 
 * [DaleSeo 'Jest로 파라미터화 테스트하기: test.each(), describe.each()'](https://www.daleseo.com/jest-each/)

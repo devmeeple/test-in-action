@@ -19,6 +19,11 @@ class PasswordStrengthMeter {
       return PasswordStrength.WEAK;
     }
 
+    // 대문자 조건만 만족하는 경우 통과한다
+    if (!lengthEnough && !containsNumber && containsUpp) {
+      return PasswordStrength.WEAK;
+    }
+
     // 문자의 길이를 검증한다
     if (!lengthEnough) {
       return PasswordStrength.NORMAL;
@@ -136,6 +141,16 @@ describe('PasswordStrengthMeterTest', () => {
   it('숫자 포함 조건만 만족하면 암호는 약함이다. [성공]', () => {
     // given
     const password = '12345';
+
+    // when
+
+    // then
+    expectStrength(password, PasswordStrength.WEAK);
+  });
+
+  it('대문자 포함 조건만 만족하면 암호는 약함이다. [성공]', () => {
+    // given
+    const password = 'ABZEF';
 
     // when
 

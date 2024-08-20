@@ -14,15 +14,18 @@ class PasswordStrengthMeter {
     if (!containsNumber) return PasswordStrength.NORMAL;
 
     // 문자가 실제 대문자이면서 알파멧 문자인지를 검증한다
-    let containsUpp = false;
-    for (const char of password) {
-      if (char === char.toUpperCase() && char !== char.toLowerCase()) {
-        containsUpp = true;
-        break;
-      }
-    }
+    const containsUpp = this.meetsContainingUppercaseCriteria(password);
     if (!containsUpp) return PasswordStrength.NORMAL;
     return PasswordStrength.STRONG;
+  }
+
+  private meetsContainingUppercaseCriteria(password: string) {
+    for (const char of password) {
+      if (char === char.toUpperCase() && char !== char.toLowerCase()) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private meetsContainingNumberCriteria(password: string) {

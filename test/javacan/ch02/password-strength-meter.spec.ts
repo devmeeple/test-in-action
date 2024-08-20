@@ -9,8 +9,13 @@ class PasswordStrengthMeter {
     const containsNumber = this.meetsContainingNumberCriteria(password);
     const containsUpp = this.meetsContainingUppercaseCriteria(password);
 
-    // 길이가 8 이상인 조건만 충족하는 경우 통과한다
+    // 길이가 8 이상인 조건만 만족하는 경우 통과한다
     if (lengthEnough && !containsNumber && !containsUpp) {
+      return PasswordStrength.WEAK;
+    }
+
+    // 숫자 포함 조건만 만족하는 경우 통과한다
+    if (!lengthEnough && containsNumber && !containsUpp) {
       return PasswordStrength.WEAK;
     }
 
@@ -121,6 +126,16 @@ describe('PasswordStrengthMeterTest', () => {
   it('길이가 8글자 이상인 조건만 만족하면 암호는 약함이다. [성공]', () => {
     // given
     const password = 'abdefghi';
+
+    // when
+
+    // then
+    expectStrength(password, PasswordStrength.WEAK);
+  });
+
+  it('숫자 포함 조건만 만족하면 암호는 약함이다. [성공]', () => {
+    // given
+    const password = '12345';
 
     // when
 

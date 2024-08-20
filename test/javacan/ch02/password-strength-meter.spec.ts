@@ -18,7 +18,7 @@ class PasswordStrengthMeter {
       metCounts += 1;
     }
 
-    if (metCounts === 1) {
+    if (metCounts <= 1) {
       return PasswordStrength.WEAK;
     }
 
@@ -147,5 +147,15 @@ describe('PasswordStrengthMeterTest', () => {
       // then
       expectStrength(password, PasswordStrength.WEAK);
     });
+  });
+
+  it('규칙을 만족하지 않는 비밀번호는 약함이다. [성공]', () => {
+    // given
+    const password = 'abc';
+
+    // when
+
+    // then
+    expectStrength(password, PasswordStrength.WEAK);
   });
 });

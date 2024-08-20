@@ -127,6 +127,8 @@ if (metCounts === 1) {
 
 > 구현하기 위해 작성했던 코드가 이렇게 이해하기 쉽게 변경될 수 있다는게 놀랍다. 어서 빨리 리팩터링 2판을 꺼내고 싶다.
 
+### 아홉 번째 테스트: 아무 조건도 만족하지 않는 경우
+
 **<참고 자료>**
 
 * [DaleSeo 'Jest로 파라미터화 테스트하기: test.each(), describe.each()'](https://www.daleseo.com/jest-each/)

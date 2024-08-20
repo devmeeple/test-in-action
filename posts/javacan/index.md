@@ -133,6 +133,8 @@ if (metCounts === 1) {
 
 > 아름답다. 눈 뜨고 싶다.
 
+### 테스트에서 메인으로 코드 이동
+
 **<참고 자료>**
 
 * [DaleSeo 'Jest로 파라미터화 테스트하기: test.each(), describe.each()'](https://www.daleseo.com/jest-each/)

@@ -5,17 +5,28 @@ class PasswordStrengthMeter {
       return PasswordStrength.INVALID;
     }
 
+    const lengthEnough = password.length >= 8;
+    const containsNumber = this.meetsContainingNumberCriteria(password);
+    const containsUpp = this.meetsContainingUppercaseCriteria(password);
+
+    // 길이가 8 이상인 조건만 충족하는 경우 통과한다
+    if (lengthEnough && !containsNumber && !containsUpp) {
+      return PasswordStrength.WEAK;
+    }
+
     // 문자의 길이를 검증한다
-    if (password.length < 8) {
+    if (!lengthEnough) {
       return PasswordStrength.NORMAL;
     }
 
-    const containsNumber = this.meetsContainingNumberCriteria(password);
-    if (!containsNumber) return PasswordStrength.NORMAL;
+    if (!containsNumber) {
+      return PasswordStrength.NORMAL;
+    }
 
     // 문자가 실제 대문자이면서 알파멧 문자인지를 검증한다
-    const containsUpp = this.meetsContainingUppercaseCriteria(password);
-    if (!containsUpp) return PasswordStrength.NORMAL;
+    if (!containsUpp) {
+      return PasswordStrength.NORMAL;
+    }
     return PasswordStrength.STRONG;
   }
 
@@ -40,6 +51,7 @@ class PasswordStrengthMeter {
 
 enum PasswordStrength {
   INVALID,
+  WEAK,
   NORMAL,
   STRONG,
 }
@@ -104,5 +116,15 @@ describe('PasswordStrengthMeterTest', () => {
 
     // then
     expectStrength(password, PasswordStrength.NORMAL);
+  });
+
+  it('길이가 8글자 이상인 조건만 만족하면 암호는 약함이다. [성공]', () => {
+    // given
+    const password = 'abdefghi';
+
+    // when
+
+    // then
+    expectStrength(password, PasswordStrength.WEAK);
   });
 });

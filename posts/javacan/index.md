@@ -70,8 +70,11 @@ if (char === char.toUpperCase() && char !== char.toLowerCase()) {
 
 Java는 Character.isUpperCase(c)를 통해 문자열이 모두 대문자인지 소문자인지 검증한다. 반면 JavaScript는 위와 같이 작성한다.
 
+### 여섯 번째 테스트: 길이가 8글자 이상인 조건만 만족하는 경우
+
+- if 절의 위치를 이동시켜서 로직의 응집도를 높인다. 관련 있는 코드를 모은다.
+
 **<참고 자료>**
 
 * [DaleSeo 'Jest로 파라미터화 테스트하기: test.each(), describe.each()'](https://www.daleseo.com/jest-each/)
 * [Baeldung Check if a String Is All Uppercase or Lowercase in Java](https://www.baeldung.com/java-check-string-uppercase-lowercase)
-

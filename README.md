@@ -42,8 +42,15 @@
 
 기능 명세는 설계로 연결된다. 이름, 파라미터, 리턴 타입 등 결정
 
-**<참고 자료>**
+## 참고 자료
+
+### 책
 
 * [테스트 주도 개발 - 켄트백](https://product.kyobobook.co.kr/detail/S000001032985)
 * [클린코드 - 로버트 마틴](https://product.kyobobook.co.kr/detail/S000001032980)
 * [최범균 『테스트 주도 개발 시작하기』](https://product.kyobobook.co.kr/detail/S000001248962)
+
+### 실무
+
+* [INFLAB tech '테스트 코드를 왜 그리고 어떻게 작성해야 할까?](https://tech.inflab.com/20230404-test-code/)
+* [INFCON 2023 '인프런에서는 수천 개의 테스트 코드를 이렇게 다루고 있어요 - 이민우'](https://inf.run/Ggi2)

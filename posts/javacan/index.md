@@ -155,3 +155,11 @@ TDD는 테스트를 먼저 작성하고 필요한 내용을 구현한다. 이때
 
 * [DaleSeo 'Jest로 파라미터화 테스트하기: test.each(), describe.each()'](https://www.daleseo.com/jest-each/)
 * [Baeldung Check if a String Is All Uppercase or Lowercase in Java](https://www.baeldung.com/java-check-string-uppercase-lowercase)
+
+# 3. 테스트 코드 작성 순서
+
+## 테스트 작성 순서 연습: 만료일 계산기
+
+- 서비스를 사용하려면 매달 1만 원을 선불로 납부한다. 납부일 기준으로 한 달 뒤가 서비스 만료일이 된다.
+- 2개월 이상 요금을 납부할 수 있다.
+- 10만 원을 납부하면 서비스를 1년 제공한다.

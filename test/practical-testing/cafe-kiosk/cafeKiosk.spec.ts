@@ -1,6 +1,6 @@
-import { CafeKiosk } from '../../src/cafe-kiosk/cafeKiosk';
-import { Latte } from '../../src/cafe-kiosk/beverage/latte';
-import { Americano } from '../../src/cafe-kiosk/beverage/americano';
+import { CafeKiosk } from '../../../src/practical-testing/cafe-kiosk/cafeKiosk';
+import { Latte } from '../../../src/practical-testing/cafe-kiosk/beverage/latte';
+import { Americano } from '../../../src/practical-testing/cafe-kiosk/beverage/americano';
 import { LocalDateTime } from '@js-joda/core';
 
 describe('CafeKiosk', () => {

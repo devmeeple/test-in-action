@@ -1,4 +1,4 @@
-import { Americano } from '../../../src/cafe-kiosk/beverage/americano';
+import { Americano } from '../../../../src/practical-testing/cafe-kiosk/beverage/americano';
 
 describe('Americano', () => {
   it('상품명을 조회한다', () => {

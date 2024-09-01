@@ -1,4 +1,4 @@
-import { CafeKiosk } from './cafeKiosk';
+import { CafeKiosk } from './cafe-kiosk';
 import { Americano } from './beverage/americano';
 import { Latte } from './beverage/latte';
 

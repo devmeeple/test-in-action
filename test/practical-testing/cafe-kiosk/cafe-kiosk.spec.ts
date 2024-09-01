@@ -1,10 +1,10 @@
-import { CafeKiosk } from '../../../src/practical-testing/cafe-kiosk/cafeKiosk';
+import { CafeKiosk } from '../../../src/practical-testing/cafe-kiosk/cafe-kiosk';
 import { Latte } from '../../../src/practical-testing/cafe-kiosk/beverage/latte';
 import { Americano } from '../../../src/practical-testing/cafe-kiosk/beverage/americano';
 import { LocalDateTime } from '@js-joda/core';
 
-describe('CafeKiosk', () => {
-  it('음료를 추가하면 음료 목록에 추가된다', () => {
+describe('CafeKioskTest', () => {
+  it('음료 1개를 추가하면 주문 목록에 추가된다', () => {
     // given
     const cafeKiosk = new CafeKiosk();
     const americano = new Americano();

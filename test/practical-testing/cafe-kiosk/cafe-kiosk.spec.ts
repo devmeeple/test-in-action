@@ -71,7 +71,7 @@ describe('CafeKioskTest', () => {
     expect(cafeKiosk.beverages).toHaveLength(0);
   });
 
-  it('상품 총금액을 계산한다', () => {
+  it('주문 목록에 담긴 상품의 총금액을 계산한다', () => {
     // given
     const cafeKiosk = new CafeKiosk();
     const americano = new Americano();

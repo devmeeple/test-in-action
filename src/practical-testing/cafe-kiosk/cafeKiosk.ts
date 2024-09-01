@@ -34,16 +34,14 @@ export class CafeKiosk {
   }
 
   calculateTotalPrice() {
-    let totalPrice = 0;
-    for (const beverage of this._beverages) {
-      totalPrice += beverage.price;
-    }
-    return totalPrice;
+    return this._beverages.reduce(
+      (totalPrice, beverage) => totalPrice + beverage.price,
+      0,
+    );
   }
 
   createOrder(currentDateTime: LocalDateTime) {
     const currentTime = currentDateTime.toLocalTime();
-
     if (
       currentTime.isBefore(CafeKiosk.SHOP_OPEN_TIME) ||
       currentTime.isAfter(CafeKiosk.SHOP_CLOSE_TIME)

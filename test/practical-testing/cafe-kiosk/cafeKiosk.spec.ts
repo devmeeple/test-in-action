@@ -71,6 +71,22 @@ describe('CafeKiosk', () => {
     expect(cafeKiosk.beverages).toHaveLength(0);
   });
 
+  it('상품 총금액을 계산한다', () => {
+    // given
+    const cafeKiosk = new CafeKiosk();
+    const americano = new Americano();
+    const latte = new Latte();
+
+    cafeKiosk.add(americano);
+    cafeKiosk.add(latte);
+
+    // when
+    const sut = cafeKiosk.calculateTotalPrice();
+
+    // then
+    expect(sut).toBe(8500);
+  });
+
   describe('createOrder', () => {
     it('주문을 만든다', () => {
       // given

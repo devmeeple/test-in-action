@@ -58,4 +58,5 @@ test('문서를 명료하게 작성하지 않으면 에러가 발생한다.', ()
 
 ### 참고
 
-- [<출처: 인프런 '인프콘 2023 다시보기'>](https://inf.run/Pbiim)
+- [인프런 '인프콘 2023 다시보기'](https://inf.run/Pbiim)
+- [박우빈 'Practical Testing: 실용적인 테스트 가이드 - DisplayName을 섬세하게'](https://inf.run/EwVKc)

@@ -8,9 +8,9 @@ export function statement(invoice, plays) {
     minimumFractionDigits: 2,
   }).format;
 
-  function amountFor(play, performance) {
+  function amountFor(performance) {
     let result = 0;
-    switch (play.type) {
+    switch (playFor(performance).type) {
       case 'tragedy':
         result = 40000;
         if (performance.audience > 30) {
@@ -25,17 +25,17 @@ export function statement(invoice, plays) {
         result += 300 * performance.audience;
         break;
       default:
-        throw new Error(`알 수 없는 장르: ${play.type}`);
+        throw new Error(`알 수 없는 장르: ${playFor(performance).type}`);
     }
     return result;
   }
 
-  function playFor(perf) {
-    return plays[perf.playID];
+  function playFor(performance) {
+    return plays[performance.playID];
   }
 
   for (const perf of invoice.performances) {
-    const thisAmount = amountFor(playFor(perf), perf);
+    const thisAmount = amountFor(perf);
     volumeCredits += Math.max(perf.audience - 30, 0);
     if ('comedy' === playFor(perf).type)
       volumeCredits += Math.floor(perf.audience / 5);

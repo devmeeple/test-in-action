@@ -30,8 +30,12 @@ export function statement(invoice, plays) {
     return result;
   }
 
+  function playFor(perf) {
+    return plays[perf.playID];
+  }
+
   for (const perf of invoice.performances) {
-    const play = plays[perf.playID];
+    const play = playFor(perf);
     const thisAmount = amountFor(play, perf);
     volumeCredits += Math.max(perf.audience - 30, 0);
     if ('comedy' === play.type) volumeCredits += Math.floor(perf.audience / 5);

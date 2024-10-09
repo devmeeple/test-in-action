@@ -8,10 +8,8 @@ export function statement(invoice, plays) {
     minimumFractionDigits: 2,
   }).format;
 
-  for (const perf of invoice.performances) {
-    const play = plays[perf.playID];
+  function amountFor(play, perf) {
     let thisAmount = 0;
-
     switch (play.type) {
       case 'tragedy':
         thisAmount = 40000;
@@ -29,6 +27,12 @@ export function statement(invoice, plays) {
       default:
         throw new Error(`알 수 없는 장르: ${play.type}`);
     }
+    return thisAmount;
+  }
+
+  for (const perf of invoice.performances) {
+    const play = plays[perf.playID];
+    const thisAmount = amountFor(play, perf);
     volumeCredits += Math.max(perf.audience - 30, 0);
     if ('comedy' === play.type) volumeCredits += Math.floor(perf.audience / 5);
 
